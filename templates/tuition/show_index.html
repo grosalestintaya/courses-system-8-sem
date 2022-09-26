@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Flask GEORGE RT | Home
+{% endblock %}
+
+{% block body %}
+
+
+<div style="background-color: rgb(245, 230, 230);" class="col-md-12">
+    <div style="margin: 1em;text-align: center;" class=" bg-dark text-white"> REPORTE DE ESTUDIANTES MATRICULADOS</div>
+    <table class="table">
+        <thead class="row ">
+            <tr class="col-sm-8 d-flex justify-content-between align-items-center">
+                <th class="col-sm-3" scope="col">Apellidos</th>
+                <th class="col-sm-5" scope="col">Nombre</th>
+                <th class="col-sm-4" scope="col">Carrera/Escuela</th>
+                <th class="col-sm-4" scope="col">Curso</th>
+                <th class="col-sm-4" scope="col">Creditos</th>
+
+            </tr>
+        </thead>
+    </table>
+    {% for report in reports %}
+    <div class="card mb-1 bg-black text-white">
+
+        <div class=" card-body py-1 px-3">
+            <div class=" col-sm-8 d-flex justify-content-between align-items-center ">
+                <p class="col-sm-3 card-text h6">{{ report.apellidos }}</p>
+                <h5 class="col-sm-5 card-text h6">{{ report.nombres}}</h5>
+                <p class="col-sm-4 card-text h6">{{ report.nombre_escuela }}</p>
+                <p class="col-sm-4 card-text h6">{{ report.nombre_curso }}</p>
+                <p class="col-sm-4 card-text h6">{{ report.creditos}}</p>
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  Flask GEORGE RT | Home 
+{% endblock %}
+
+{% block body %}
+
+    <!-- FORM -->
+    <div class="row">
+z
+    <div class="col-md-3 p-4">
+      <!-- MESSAGE -->
+      {% include 'partials/_message.html' %}
+
+      <!-- FORM -->
+      {%  include 'partials/_taskFormStudent.html' %}
+    </div>
+
+    <!-- contacts list -->
+    
+    <div style="background-color: rgb(245, 230, 230);" class="col-md-9" >
+      <div style="margin: 1em;text-align: center;" class=" bg-dark text-white"> LISTA DE ESTUDIANTES </div>
+      <table class="table">
+        <thead class="row ">
+          <tr class="col-sm-9 ">
+            <th class="col-sm-3" scope="col">dni</th>
+            <th class="col-sm-3" scope="col">apellidos</th>
+            <th class="col-sm-3" scope="col">nombres</th>
+            <th class="col-sm-3" scope="col">feNacimiento</th>
+            <th class="col-sm-3" scope="col">sexo</th>
+            <th scope="col-sm-4">Opciones</th>
+
+          </tr>
+        </thead>
+      </table>
+      {% for estudiante in estudiantes %}
+        <div class="card mb-1 bg-black text-white">
+          
+          <div class=" card-body py-1 px-3">
+            <div class=" col-sm-8 d-flex justify-content-between align-items-center ">
+              <p class="col-sm-2 card-text h6">{{ estudiante.dni }}</p>
+              <h5 class="col-sm-3 card-text h6">{{ estudiante.apellidos}}</h5>
+              <p class="col-sm-3 card-text h6">{{ estudiante.nombres }}</p>
+              <p class="col-sm-3 card-text h6">{{ estudiante.fecNacimiento }} </p> 
+              <p class="col-sm-2 card-text h6">{{ estudiante.sexo }}</p> 
+              <div  class=" col-sm-8 ms-auto">
+                <a  href="{{ url_for('estudiante.update', id=estudiante.id_estudiante) }}" class="ms-auto col-sm-2 btn btn-dark btn-sm rounded-0">Edit</a>
+                <a href="{{ url_for('estudiante.delete', id=estudiante.id_estudiante) }}" class=" ms-auto col-sm-2 btn btn-danger btn-sm rounded-0">Delete</a>
+                <a href="{{ url_for('estudiante.select',id_estudiante=estudiante.id_estudiante,id_escuela=estudiante.id_escuela,apellidos=estudiante.apellidos,nombres=estudiante.nombres ) }}" class=" ms-auto col-sm-3 btn btn-warning btn-sm rounded-0">enroller</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+    </div>
+
+
+
+
+{% endblock %}

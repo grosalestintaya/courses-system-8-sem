@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  Flask GEORGE RT | Home 
+{% endblock %}
+
+{% block body %}
+
+    <!-- FORM -->
+    <div class="row">
+
+  
+    <!-- contacts list -->
+    
+    <div  class="col-md-10" >
+      
+      <div class="col-md-12 p-4">
+        <!-- MESSAGE -->
+        {% include 'partials/_message.html' %}
+  
+        <!-- FORM -->
+        {%  include 'partials/_taskFromTuition.html' %}
+      </div>
+  
+    </div>
+  </div>
+    </div>
+
+
+
+
+{% endblock %}

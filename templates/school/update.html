@@ -1,0 +1,41 @@
+{% extends "layout.html" %} {% block body %}
+
+<div class="col-md-4 offset-md-4">
+  <div class="card card-body bg-dark text-white">
+    <h1>Edit school</h1>
+
+    <form action="{{url_for('escuela.update', id=escuela.id_escuela)}}" method="POST">
+      <div class="mb-3">
+        <label for="fullname">Write school's code:</label>
+        <input
+          type="text"
+          name="codigo"
+          value="{{escuela.codigo}}"
+          class="form-control bg-dark text-white rounded-0"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="email">Write school name:</label>
+        <input
+          type="text"
+          name="nombre"
+          value="{{escuela.nombre}}"
+          class="form-control bg-dark text-white rounded-0"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="phone">Write school duration :</label>
+        <input
+          type="tel"
+          name="duracion"
+          value="{{escuela.duracion}}"
+          class="form-control bg-dark text-white rounded-0"
+        />
+      </div>
+
+      <button class="btn btn-primary">Update</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  Flask GEORGE RT | Home 
+{% endblock %}
+
+{% block body %}
+
+    <!-- FORM -->
+    <div class="row">
+
+    <div class="col-md-4 p-4">
+      <!-- MESSAGE -->
+      {% include 'partials/_message.html' %}
+
+      <!-- FORM -->
+      {%  include 'partials/_taskFormSchool.html' %}
+    </div>
+
+    <!-- contacts list -->
+    
+    <div style="background-color: rgb(245, 230, 230);" class="col-md-8" >
+      <div style="margin: 1em;text-align: center;" class=" bg-dark text-white"> LISTA DE ESCUELAS</div>
+      <table class="table">
+        <thead class="row ">
+          <tr class="col-sm-9 ">
+            <th class="col-sm-3" scope="col">Codigo</th>
+            <th class="col-sm-5" scope="col">Nombre</th>
+            <th class="col-sm-4" scope="col">Duracion</th>
+            <th scope="col-sm-8">Opciones</th>
+
+          </tr>
+        </thead>
+      </table>
+      {% for escuela in escuelas %}
+        <div class="card mb-1 bg-black text-white">
+          
+          <div class=" card-body py-1 px-3">
+            <div class=" col-sm-8 d-flex justify-content-between align-items-center ">
+              <p class="col-sm-3 card-text h6">{{ escuela.codigo }}</p>
+              <h5 class="col-sm-5 card-text h6">{{ escuela.nombre}}</h5>
+              <p class="col-sm-4 card-text h6">{{ escuela.duracion }}</p> 
+              <div  class=" col-sm-8 ms-auto">
+                <a  href="{{ url_for('escuela.update', id=escuela.id_escuela) }}" class="ms-auto col-sm-4 btn btn-dark btn-sm rounded-0">Edit</a>
+                <a href="{{ url_for('escuela.delete', id=escuela.id_escuela) }}" class=" ms-auto col-sm-4 btn btn-danger btn-sm rounded-0">Delete</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+    </div>
+
+
+
+
+{% endblock %}

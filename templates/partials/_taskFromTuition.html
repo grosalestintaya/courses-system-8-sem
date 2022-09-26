@@ -1,0 +1,45 @@
+<form action="/newtuition" method="POST" class="card bg-black text-light">
+    <div class="card-body p-4">
+        <h1 style="text-align: center" class="h5 mb-4 solid  text-white">Validando Datos</h1>
+        <div class="card-body p-4 bg-light  text-black rounded border border-info col-md-12" >
+            <div class="mb-3">
+            <h1  class="h5 mb-4 solid bg-primary  rounded  col-md-10 text-white">EAP- {{nombre_escuela}} 
+            </h1>
+
+                <label>1 -tu codigo de escuela es : {{id_escuela}} </label>
+                
+                </select>
+            </div>
+            <div class="mb-3">
+                <label>2 - tu apellido es : {{apellidos}} </label>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label>3 -tu nombre es : {{nombres}} </label>
+                </select>
+            </div>
+        </div>
+        <div class="card-body p-4 bg-light  text-black rounded border border-info col-md-12">
+            <h1 class="h5 mb-4 solid  col-md-8 bg-primary rounded  text-white">Selecion de Curso a Matricular</h1>
+            <div class="mb-3">
+                <label for="code">select cources</label>
+                <select class="form-control col-md-6" name="id_curso">
+                    {% for todos in todos %}
+                    <option value=' {{todos.id_curso}} '>{{todos.nombre}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+    
+        </div>
+    
+        <input  name="id_escuela" type="hidden" value="{{id_escuela}}">
+        <input  name="id_estudiante" type="hidden" value="{{id_estudiante}}">
+        <input  name="nombre_escuela" type="hidden" value="{{nombre_escuela}} ">
+
+        <input  name="nombres" type="hidden" value="{{nombres}} ">
+        <input  name="apellidos" type="hidden" value="{{apellidos}} ">
+
+
+        <button class="btn btn-primary">submit all</button>
+    </div>
+</form>
