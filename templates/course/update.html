@@ -2,11 +2,11 @@
 
 <div class="col-md-4 offset-md-4">
   <div class="card card-body bg-dark text-white">
-    <h1>Edit school</h1>
+    <h1>Edit course</h1>
 
     <form action="{{url_for('curso.update', id=curso.id_curso)}}" method="POST">
       <div class="mb-3">
-        <label for="fullname">select school to course:</label>
+        <label >Write course´s code::</label>
         <input
           type="text"
           name="codigo"
@@ -14,8 +14,11 @@
           class="form-control bg-dark text-white rounded-0"
         />
       </div>
+      <input type="hidden"  name ="id_escuela" value="{{curso.id_escuela}}" >
+      <input type="hidden"  name ="id_curso" value="{{curso.id_curso}}" >
+
       <div class="mb-3">
-        <label for="email">Write course´s code:</label>
+        <label >Write course's name ::</label>
         <input
           type="text"
           name="nombre"
@@ -24,21 +27,13 @@
         />
       </div>
       <div class="mb-3">
-        <label for="phone">Write  course's name :</label>
-        <input
-          type="tel"
-          name="duracion"
-          value="{{curso.duracion}}"
-          class="form-control bg-dark text-white rounded-0"
-        />
-      </div>
-      <div class="mb-3">
         <label for="duration"> Credits number :</label>
         <input
           type="text"
           name="credito"
+          value="{{curso.credito}}"
           class="form-control rounded-0 bg-dark border-0 text-white"
-          placeholder="Write duration"
+          placeholder="Write a number"
           required
         />
       </div>

@@ -37,10 +37,11 @@ def update(id):
     curso = Curso.query.get(id)
 
     if request.method == "POST":
+        curso.id_escuela = request.form["id_curso"]
         curso.id_escuela = request.form["id_escuela"]
         curso.codigo = request.form["codigo"]
         curso.nombre = request.form["nombre"]
-        curso.duracion = request.form["duracion"]
+        curso.credito = request.form["credito"]
 
         db.session.commit()
 
