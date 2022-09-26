@@ -21,8 +21,9 @@ def index():
 def add_chool():
     if request.method == "POST":
         # recibiendo data del formulario
-        nombre_escuela = request.form["nombre_escuela"]
-        print(nombre_escuela)
+
+        #nombre_escuela = request.form["id_escuela"]
+        #print(nombre_escuela)
 
         id_escuela = request.form["id_escuela"]
         dni = request.form["dni"]
@@ -90,7 +91,8 @@ def select(id_estudiante,id_escuela, apellidos, nombres):
     nombres = nombres
     escuelas= Escuela.query.get(id_escuela)
     nombre_escuela=escuelas.nombre
-    todos=Curso.query.all()
+    todos=Curso.query.filter(Curso.id_escuela == id_escuela )
+
 
     return render_template(
         "tuition/index.html",

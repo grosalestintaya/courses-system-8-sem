@@ -2,6 +2,8 @@ from utils.db import db
 from models.curso import Curso
 from models.escuela import Escuela
 from models.estudiante import Estudiante 
+from sqlalchemy.ext.declarative import declarative_base
+Base = declarative_base()
 
 
 class Matricula(db.Model):

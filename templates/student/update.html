@@ -6,15 +6,15 @@
 
         <form action="{{url_for('estudiante.update', id=estudiante.id_estudiante)}}" method="POST">
 
-
-            <div class="mb-3">
+            <input type="hidden" name="id_escuela" value="{{estudiante.id_escuela}}"  />
+            <!--div class="mb-3">
                 <label for="code">select school to Student:</label>
                 <select class="col-sm-10 form-control" name="id_escuela">
                     {% for escuela in escuelas %}
                     <option value="{{escuela.id_escuela}}">{{escuela.nombre}}</option>
                     {% endfor %}
                 </select>
-            </div>
+            </div-->
 
             <div class="mb-3">
                 <label for="name">dni:</label>
@@ -41,54 +41,7 @@
                     class="form-control rounded-0 bg-dark border-0 text-white" required />
             </div>
             <div class="mb-3">
-<form action="/newstudent" method="POST" class="card bg-black text-light">
-    <div class="card-body p-4">
-        <h1 class="h5 mb-4">Transaccion -->  Estudiante</h1>
-
-        <div class="mb-3">
-            <label  for="code">select school to Student:</label>
-            <select class="col-sm-10 form-control" name="id_escuela">
-                {% for escuela in escuelas %}
-                <option value="{{escuela.id_escuela}}">{{escuela.nombre}}</option>
-                {% endfor %}
-
-            </select>
-        </div>
-
-        <div class="mb-3">
-            <label for="name">dni:</label>
-            <input type="text" name="dni" class="form-control rounded-0 bg-dark border-0 text-white"
-                placeholder="Write your dni" required />
-        </div>
-
-        <div class="mb-3">
-            <label for="name">Apellidos:</label>
-            <input type="text" name="apellidos" class="form-control rounded-0 bg-dark border-0 text-white"
-                placeholder="Write your lastname" required />
-        </div>
-
-        <div class="mb-3">
-            <label for="duration">Nombres:</label>
-            <input type="text" name="nombres" class="form-control rounded-0 bg-dark border-0 text-white"
-                placeholder="Write your names" required />
-        </div>
-        <div class="mb-3">
-            <label for="duration"> Fecha de nacimiento  :</label>
-            <input type="date" name="fecNacimiento" class="form-control rounded-0 bg-dark border-0 text-white"
-             required />
-        </div>
-        <div class="mb-3">
-            <label for="duration"> Sexo o Genero :</label>
-            <select class="col-sm-7  form-control " name="sexo">
-                <option value="Male">Masculino</option>
-                <option value="Female">Femenino </option>
-                <option value="Other">Otro</option>
-            </select>
-        </div>
-
-        <button class="btn btn-primary">submit all</button>
-    </div>
-</form>                <select class="col-sm-7  form-control " name="sexo">
+                <select class="col-sm-7  form-control " name="sexo">
                     <option value="Male">Masculino</option>
                     <option value="Female">Femenino </option>
                     <option value="Other">Otro</option>
